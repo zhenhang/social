@@ -1,0 +1,21 @@
+<!-- nice -->
+<% answers.each do |answer| %>
+<div class="reply-item">
+  <%= link_to image_tag(answer.user.avatar, :class => 'avatar'), user_path(answer.user) %>
+  <div class="main">
+    <div class="meta">
+      <a href="<%= user_path(answer.user) %>" class="reply-username">
+        <span class="username"><%= answer.user.username %></span>
+      </a>
+      <span class="time"><%= time_ago_in_words answer.created_at %></span>
+      <a href="<%= reply_like_path(answer.id) %>" class="J_topicVote">感谢</a>
+      <span class="floor fr">#<%= answer.floor %></span>
+      <span class="reply-to fr J_replyTo" data-username="<%= answer.user.username %>">
+        <img src="/reply.png" alt="">
+      </span>
+    </div>
+    <span class="content"><p><%= answer.content %></p></span>
+  </div>
+</div>
+<% end %>
+

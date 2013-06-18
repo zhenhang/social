@@ -1,0 +1,64 @@
+
+<div class="user-page">
+<div class="profile container-box">
+    <div class="ui-header">
+        <%= link_to image_tag(@user.avatar, :class => 'avatar'), user_path(@user) %>
+
+        <div class="username"><%= @user.username %></div>
+        <div class="user-number">
+            <div class="number">第<%= @user.id %>号成员</div>
+            <div class="since">入住于<%= @user.created_at %></div>
+        </div>
+    </div>
+    <div class="ui-content">
+        <dl>
+            <dt>ID</dt>
+            <dd><%= @user.username %></dd>
+        </dl>
+        <dl>
+            <dt>Email</dt>
+            <dd><%= @user.email %></dd>
+        </dl>
+    </div>
+</div>
+<div class="topic-lists container-box">
+    <div class="ui-header">
+        <span class="title">主题列表</span>
+    </div>
+
+    <div class="topics container-box">
+        <%= render 'layouts/tlist' %>
+        <%= render 'layouts/pagination' %>
+    </div>
+
+    <div class="ui-footer">
+        <%= link_to '›› 查看更多主题', user_topics_path %>
+    </div>
+</div>
+<div class="replies-lists container-box">
+    <div class="ui-header">
+        <span class="title">回复列表</span>
+    </div>
+    <div class="ui-content topics">
+
+    <% @replies.each do |reply| %>
+    <div class="reply-item">
+
+            <div class="main">
+                <span class="title">
+                    回复了 <%= reply.user.username %> 创建的主题 <%= link_to reply.repliable.title, topic_path(reply.repliable.id) %>
+                </span>
+
+                <div class="content">
+                    <p><%= reply.content %></p>
+                </div>
+            </div>
+    </div>
+    <% end %>
+
+    </div>
+    <div class="ui-footer">
+        <%= link_to '›› 查看更多回复', user_replies_path(@user) %>
+    </div>
+</div>
+</div>

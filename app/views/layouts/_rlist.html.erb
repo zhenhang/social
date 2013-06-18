@@ -1,0 +1,24 @@
+    <% counter = 0 %>
+    <% @topic.replies.each do |reply| %>
+    <div class="reply-item">
+        <a href="/u/guokai">
+            <img src="<%= reply.user.avatar %>"
+                 alt="" class="avatar">
+        </a>
+
+        <div class="main">
+            <div class="meta">
+                <a href="/u/guokai" class="reply-username">
+                    <span class="username"><%= reply.user.username %></span>
+                </a>
+                <span class="time"><%= time_ago_in_words reply.created_at %></span>
+                <a href="<%= thanks_path(@topic.id) %>" class="J_topicVote">感谢</a>
+                <span class="floor fr">#<%= counter+=1 %></span>
+                <span class="reply-to fr J_replyTo" data-username="<%= reply.user.username %>">
+                    <img src="/reply.png" alt="">
+                </span>
+            </div>
+            <span class="content"><p><%= reply.content %></p></span>
+        </div>
+    </div>
+    <% end %>

@@ -1,0 +1,37 @@
+
+<div class="container-box">
+
+<%= form_for(:user, :class => 'form-horizontal', :url => login_path) do |f| %>
+    <fieldset>
+        <div id="legend" class="mb50">
+            <legend class="">登录</legend>
+        </div>
+
+        <div class="control-group">
+            <%= f.label '邮箱', :class => "control-label" %>
+            <div class="controls">
+                 <%= f.email_field :email, :autofocus => true, :class => 'input-xlarge' %>
+                <p class="help-block">请输入您注册时所填邮箱</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <%= f.label '密码', :class => "control-label" %>
+            <div class="controls">
+                <%= f.password_field :password, :class => 'input-xlarge'  %>
+                <p class="help-block">请输入您的密码（不少于8个字符）</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <%= f.submit "登录", :class => 'btn btn-success' %>
+                <a href="/forgot" class="btn">忘记密码了</a>
+            </div>
+        </div>
+    </fieldset>
+
+  <div></div>
+<% end %>
+
+</div>

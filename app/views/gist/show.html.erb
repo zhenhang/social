@@ -1,0 +1,34 @@
+<div class="topic-detail container-box">
+<div class="ui-header">
+    <%= link_to image_tag(@gist.user.avatar, :class => 'avatar'), user_path(@gist.user) %>
+    <div class="main">
+        <h3 class="title"><%= @gist.title %></h3>
+        <div class="meta">
+            • <span class="username"><%= link_to @gist.user.username, user_path(@gist.user.username) %></span>
+            • <span class="created-time"><%= time_ago_in_words @gist.created_at %></span>
+        </div>
+    </div>
+</div>
+<div class="ui-content">
+    <p><%= @gist.description %></p>
+</div>
+<div class="ui-content">
+    <p><%= @gist.content %></p>
+</div>
+<div class="ui-footer">
+    <%= link_to '编辑', edit_gist_path(@gist.id), :class => 'J_topicVote' %>
+</div>
+</div>
+<div class="topic-reply container-box">
+<div class="ui-header">
+    <span>共收到<%= @gist.replies.count %>条回复</span>
+</div>
+<div class="ui-content">
+	<%= render :partial => 'layouts/replies', :locals => {:replies => @gist.replies} %>
+</div>
+<div class="ui-footer">
+    <div class="pagination pagination-mini"></div>
+</div>
+</div>
+
+<%= render :partial => 'layouts/reply', :locals => {:url => reply_gist_path(@gist), :owner_name => :gist_id, :owner => @gist.id} %>

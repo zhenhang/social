@@ -1,0 +1,15 @@
+<!-- nice -->
+<% if user_signed_in? %>
+<div class="topic-reply-create container-box">
+<div class="ui-header">
+  <span class="title">创建新的回复</span>
+</div>
+<div class="ui-content">
+  <%= form_for(@answer, :class => 'mt10', :url => url, :method => :post) do |f| %>
+    <%= f.text_area :content, :autofocus => true, :class => 'content mt5 smart-code-support', :rows => 3, :placeholder => '回复内容' %>
+    <%= hidden_field_tag(owner_name, owner) %>
+    <%= f.submit "立即回复", :class => 'btn btn-small' %>
+  <% end %>
+</div>
+</div>
+<% end %>

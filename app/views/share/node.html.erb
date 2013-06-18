@@ -1,0 +1,12 @@
+<div class="topics container-box node-topics">
+    <div class="ui-header">
+    	<%= link_to '创建新主题', new_share_path(@nodename), :class => 'btn btn-small fr' %>
+        <span class="bread-nav"><%= @nodename %></span>
+    </div>
+
+    <div class="ui-content">
+        <%= render 'layouts/tlist' %>
+    </div>
+
+    <% # will_paginate @topics %>
+</div>

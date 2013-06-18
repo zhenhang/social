@@ -1,0 +1,21 @@
+
+<%= render 'layouts/nav' %>
+
+<% if @site && @site.notice %>
+
+<div class=" container-box">
+<h4 class="title">公告</h4>
+<blockquote  >
+	<%= @site.notice %>
+</blockquote>
+</div>
+
+<% end %>
+
+<!-- list start -->
+<div class="topics container-box">
+    <%= render 'layouts/tlist' %>
+    <% # paginate @topics %>
+    <!-- <%= render 'layouts/pagination' %> -->
+</div>
+<!-- list end -->

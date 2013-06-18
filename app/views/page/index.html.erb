@@ -1,0 +1,21 @@
+<div class="topics container-box">
+  <div class="ui-header">
+    <%= link_to '创建新页面', new_page_path, :class => 'btn btn-small fr' %>
+    <span class="bread-nav"> 页面 </span>
+  </div>
+
+  <% @pages.each do |page| %>
+  <div class="topic-item">
+
+    <div class="main">
+      <h3 class="title">
+        <%= link_to page.title, page_path(page.id) %>
+      </h3>
+
+      <div class="meta">
+        <span class="last-touched"><%= time_ago_in_words page.created_at %></span> •
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

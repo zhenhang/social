@@ -1,0 +1,94 @@
+<div class="span3">
+
+  <% if current_user %>
+
+  <div class="usercard container-box">
+      <div class="ui-header">
+          <a href="<%= user_path current_user %>">
+            <%= image_tag current_user.avatar, :class => 'avatar' %>
+          </a>
+
+          <div class="username"><%= current_user.username %></div>
+          <div class="website"><a href=""></a></div>
+      </div>
+      <div class="ui-content">
+          <div class="status status-topic">
+              <strong><%= link_to current_user.topics.count, user_topics_path(current_user) %></strong> 主题
+          </div>
+          <div class="status status-reply">
+              <strong><%= link_to current_user.replies.count, user_replies_path(current_user) %></strong> 回复
+          </div>
+          <div class="status status-favorite">
+              <strong><%= link_to current_user.favs.count, user_favs_path(current_user) %></strong> 收藏
+          </div>
+          <div class="status status-reputation">
+              <strong><%= current_user.rate %></strong> 金币
+          </div>
+      </div>
+  </div>
+
+  <% else %>
+
+  <div class="login-box container-box">
+      <div class="ui-content tc">
+        <%= link_to '注册', new_user_registration_path, :class => 'btn btn-small' %>
+        <%= link_to '登录', new_user_session_path, :class => 'btn btn-small' %>
+      </div>
+  </div>
+
+  <% end %>
+
+  <!-- 
+
+  <div class="sidebox container-box">
+      <div class="ui-header">
+          <span class="title">微信公共帐号</span>
+      </div>
+      <div class="ui-content">
+          <img src="/qrrrrrrrcode.jpg" alt="">
+      </div>
+  </div>
+
+  -->
+
+
+  <div class="sidebox container-box hot-nodes">
+      <div class="ui-header">
+          <span class="title">最热节点</span>
+      </div>
+      <div class="ui-content">
+                <a href="/node/xxx">数学</a>
+                <a href="/node/xxx">物理</a>
+                <a href="/node/xxx">语文</a>
+                <a href="/node/xxx">地理</a>
+                <a href="/node/xxx">天文</a>
+                <a href="/node/xxx">生物</a>
+                <a href="/node/xxx">海洋学</a>
+      </div>
+  </div>
+
+  <div class="sidebox container-box community-status">
+      <div class="ui-header">
+          <span class="title">运行状态</span>
+      </div>
+      <div class="ui-content">
+          <dl>
+              <dt>注册成员</dt>
+              <dd><%= @site.user_count %></dd>
+          </dl>
+          <dl>
+              <dt>节点</dt>
+              <dd><%= @site.node_count %></dd>
+          </dl>
+          <dl>
+              <dt>主题</dt>
+              <dd><%= @site.topic_count %></dd>
+          </dl>
+          <dl>
+              <dt>回复</dt>
+              <dd><%= @site.reply_count %></dd>
+          </dl>
+      </div>
+  </div>
+
+</div>

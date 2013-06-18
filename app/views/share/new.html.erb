@@ -1,0 +1,18 @@
+<div class="topic-create container-box">
+    <div class="ui-header">
+        <span class="title">分享新文件</span>
+    </div>
+    <div class="ui-content">
+        <%= form_for(@share, :class => 'mt10', :url => new_share_path, :method => :post) do |f| %>
+            <div class="input-prepend mt10">
+                <span class="add-on">#</span>
+                <%= f.text_field :title, :autofocus => true, :class => 'span8', :placeholder => '主题' %>
+            </div>
+            <%= f.file_field :file %>
+            <%= f.text_area :content, :autofocus => true, :class => 'content mt5 smart-code-support', :rows => 3, :placeholder => '正文' %>
+            <%= hidden_field_tag(:node, @nodename) %>
+            <%= f.submit "立即发布", :class => 'btn btn-small' %>
+        <% end %>
+    </div>
+</div>
+

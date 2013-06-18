@@ -1,0 +1,62 @@
+<div class="container-box">
+<%= form_for(@user, :class => 'form-horizontal', :url => user_setting_path, :method => :post) do |f| %>
+    <fieldset>
+        <div id="legend">
+            <legend class="">用户信息设置</legend>
+        </div>
+
+        <div class="control-group">
+            <!-- Avatar -->
+            <label class="control-label" for="avatar">头像</label>
+            <div class="controls">
+                <%= image_tag @user.avatar, :class => 'avatar' %>
+                <%= link_to '设置头像', user_avatar_path, :class => 'btn btn-block set-avatar-btn' %>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Username -->
+            <label class="control-label" for="username">用户名</label>
+            <div class="controls">
+                <%= f.text_field :username, :class => 'input-xlarge' %>
+                <p class="help-block">用户名由字母开头，只能含有字母、数字或者下划线</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+                <%= f.text_field :email, :class => 'input-xlarge' %>
+                <p class="help-block">你的E-mail，便于登录和找回密码</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="saying">个性签名</label>
+            <div class="controls">
+                <%= f.text_field :saying, :class => 'input-xlarge' %>
+                <p class="help-block">你的签名，将展示在你的个人资料页面</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Location -->
+            <label class="control-label" for="location">城市</label>
+            <div class="controls">
+                <%= f.text_field :location, :class => 'input-xlarge' %>
+                <p class="help-block">你的城市，有助于后续你在社区的交友</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+                <%= f.submit "保存改动", :class => 'btn btn-success' %>
+                <%= link_to '设置密码', '/setting/password', :class => 'ml10 btn' %>
+            </div>
+        </div>
+    </fieldset>
+<% end %>
+</div>

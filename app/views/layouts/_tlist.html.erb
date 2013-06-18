@@ -1,0 +1,25 @@
+<% @topics.each do |topic| %>
+<div class="topic-item">
+    <%= link_to image_tag(topic.user.avatar, :class => 'avatar'), user_path(topic.user) %>
+
+    <div class="main">
+        <h3 class="title">
+            <%= link_to topic.title, topic_path(topic.id, :anchor => "reply#{topic.replies.count}") %>
+        </h3>
+
+        <div class="meta">
+            <span class="node"><%= link_to topic.node, node_path(topic.node) %></span> •
+            <span class="username">
+                <%= link_to topic.user.username, user_path(topic.user)  %>
+            </span> •
+            <span class="last-touched"><%= time_ago_in_words topic.created_at %></span> •
+            <% if topic.last_reply_id %>
+            <span class="last-reply-username">最后回复来自 <strong><%= link_to topic.last_reply_user_name, user_path(topic.last_reply_id) %></strong></span>
+            <% end %>
+        </div>
+    </div>
+    <div class="count">
+        <%= link_to topic.replies.count, topic_path(topic.id) %>
+    </div>
+</div>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="topic-detail container-box">
+<div class="ui-header">
+    <div class="main">
+        <h3 class="title"><%= @page.title %></h3>
+        <div class="meta">
+            • <span class="created-time"><%= time_ago_in_words @page.created_at %></span>
+        </div>
+    </div>
+</div>
+<div class="ui-content">
+    <p><%= @page.content %></p>
+</div>
+<div class="ui-footer">
+    <%= link_to '编辑', edit_page_path(@page.id), :class => 'J_topicVote' %>
+</div>
+</div>
+

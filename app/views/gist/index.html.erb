@@ -1,0 +1,31 @@
+<div class="topics container-box">
+  <div class="ui-header">
+    <%= link_to '创建', new_gist_path, :class => 'btn btn-small fr' %>
+    <span class="bread-nav"> 笔记 </span>
+  </div>
+
+  <% @gists.each do |gist| %>
+  <div class="topic-item">
+
+    <div class="main">
+      <h3 class="title">
+        <%= link_to gist.title, gist_path(gist.id, :anchor => "reply#{gist.replies.count}") %>
+      </h3>
+
+      <div class="ui-content">
+        <p><%= gist.description %></p>
+      </div>
+
+      <div class="meta">
+        <span class="username">
+          <%= link_to gist.user.username, user_path(gist.user)  %>
+        </span> •
+        <span class="last-touched"><%= time_ago_in_words gist.created_at %></span> •
+      </div>
+    </div>
+    <div class="count">
+      <%= link_to gist.replies.count, news_path(gist.id) %>
+    </div>
+  </div>
+  <% end %>
+</div>

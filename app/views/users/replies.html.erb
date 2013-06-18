@@ -1,0 +1,27 @@
+    <div class="ui-header">
+        <span class="title">回复列表</span>
+    </div>
+
+    <div class="topics container-box">
+
+	    <% @user.replies.each do |reply| %>
+	    <div class="reply-item">
+	        <a href="/u/guokai">
+	            <img src="<%= reply.user.avatar %>"
+	                 alt="" class="avatar">
+	        </a>
+
+	        <div class="main">
+	            <div class="meta">
+	                <a href="/u/guokai" class="reply-username">
+	                    <span class="username"><%= reply.user.username %></span>
+	                </a>
+	                <span class="time"><%= time_ago_in_words reply.created_at %></span>
+	            </div>
+	            <span class="content"><p><%= reply.content %></p></span>
+	        </div>
+	    </div>
+	    <% end %>
+
+        <%= render 'layouts/pagination' %>
+    </div>

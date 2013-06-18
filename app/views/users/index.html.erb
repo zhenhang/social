@@ -1,0 +1,16 @@
+
+<div class="member-lists container-box">
+<div class="ui-header">
+    <span class="title">成员</span>
+</div>
+<div class="ui-content">
+    <% @users.each do |user| %>
+    <div class="member">
+        <%= link_to image_tag(user.avatar, :class => 'avatar'), user_path(user) %>
+        <span class="username">
+            <%= link_to user.username, user_path(user.id) %>
+        </span>
+    </div>
+    <% end %>
+</div>
+</div>

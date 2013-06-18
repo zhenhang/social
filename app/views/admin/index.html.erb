@@ -1,0 +1,102 @@
+<div class="span9">
+
+<!-- settings start -->
+<div class="container-box">
+<form class="form-horizontal" action="" method="POST">
+    <fieldset>
+        <div id="legend">
+            <legend class="">网站管理</legend>
+        </div>
+
+
+        <div class="control-group">
+            <!-- Nickname -->
+            <label class="control-label" for="title">网站名称</label>
+
+            <div class="controls">
+                <input id="title" name="title" placeholder="" class="input-xlarge" value="<%= @site.title %>" type="text">
+
+                <p class="help-block">请输入网站的名称</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Nickname -->
+            <label class="control-label" for="logo">logo url</label>
+
+            <div class="controls">
+                <input id="logo" name="logo" placeholder="" class="input-xlarge" value="<%= @site.logo %>" type="text">
+
+                <p class="help-block">请输入网站logo的url</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Nickname -->
+            <label class="control-label" for="notice">公告</label>
+
+            <div class="controls">
+                <input id="nickname" name="notice" placeholder="" class="input-xlarge" value="<%= @site.ad %>" type="text">
+
+                <p class="help-block">请输入网站的公告</p>
+            </div>
+        </div>
+
+
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="hot_node">编辑热门节点</label>
+
+            <div class="controls">
+                <textarea type="text" id="hot_node" name="hot_node" value="<%= @site.hot_node %>"
+                          class="input-xlarge"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="top_topic">编辑置顶话题</label>
+
+            <div class="controls">
+                <textarea type="text" id="top_topic" name="top_topic" value="<%= @site.top_topic %>"
+                          class="input-xlarge"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="ad">编辑广告内容</label>
+
+            <div class="controls">
+                <textarea type="text" id="ad" name="ad" value="<%= @site.ad %>"
+                          class="input-xlarge"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="state">设置网站状态</label>
+
+            <div class="controls">
+                <select id="state" name="state" value="<%= @site.state %>" class="input-xlarge">
+                  <option>normal</option>
+                  <option>closed</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+                <button class="btn btn-success">保存改动</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+</div>
+<!-- settings end -->
+
+</div>

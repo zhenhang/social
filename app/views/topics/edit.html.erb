@@ -1,0 +1,18 @@
+<div class="topic-create container-box">
+    <div class="ui-header">
+        <span class="title">编辑主题</span>
+    </div>
+    <div class="ui-content">
+        <%= form_for(@topic, :class => 'mt10', :url => edit_topic_path(@topic), :method => :post) do |f| %>
+            <div class="input-prepend mt10">
+                <span class="add-on">#</span>
+                <%= f.text_field :title, :autofocus => true, :class => 'span8', :placeholder => '主题' %>
+            </div>
+            <div id="editor-button-bar"></div>
+            <%= f.text_area :content, :autofocus => true, :class => 'content mt5 smart-code-support', :rows => 3, :placeholder => '正文' %>
+            <div id="editor-preview"></div>
+            <%= hidden_field_tag(:node, @nodename) %>
+            <%= f.submit "立即保存", :class => 'btn btn-small' %>
+        <% end %>
+    </div>
+</div>

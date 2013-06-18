@@ -1,0 +1,31 @@
+<div class="topics container-box">
+  <div class="ui-header">
+    <%= link_to '创建新主题', new_ask_path, :class => 'btn btn-small fr' %>
+    <span class="bread-nav"> 问答 </span>
+  </div>
+
+  <% @questions.each do |question| %>
+  <div class="topic-item">
+
+    <div class="main">
+      <h3 class="title">
+        <%= link_to question.title, ask_path(question.id) %>
+      </h3>
+
+      <div class="ui-content">
+        <p><%= question.content %></p>
+      </div>
+
+      <div class="meta">
+        <span class="username">
+          <%= link_to question.user.username, user_path(question.user)  %>
+        </span> •
+        <span class="last-touched"><%= time_ago_in_words question.created_at %></span> •
+      </div>
+    </div>
+    <div class="count">
+      <%= link_to question.answers.count, ask_path(question.id) %>
+    </div>
+  </div>
+  <% end %>
+</div>

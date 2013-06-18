@@ -1,0 +1,41 @@
+<div class="topic-detail container-box">
+<div class="ui-header">
+    <%= link_to image_tag(@question.user.avatar, :class => 'avatar'), user_path(@question.user) %>
+    <div class="main">
+        <h3 class="title"><%= @question.title %></h3>
+        <div class="meta">
+            <span class="node"><%= link_to 'all', node_path('all') %></span>
+            • <span class="username"><%= link_to @question.user.username, user_path(@question.user.username) %></span>
+            • <span class="created-time"><%= time_ago_in_words @question.created_at %></span>
+        </div>
+    </div>
+</div>
+<div class="ui-content">
+    <p><%= @question.content %></p>
+</div>
+<div class="ui-footer">
+    <%= link_to '编辑', edit_ask_path(@question.id), :class => 'J_topicVote' %>
+    <%= link_to '收藏', fav_path(@question.id), :class => 'J_topicVote' %>
+    <%= link_to '喜欢', like_path(@question.id), :class => 'J_topicVote' %>
+    <%= link_to '不喜欢', dislike_path(@question.id), :class => 'J_topicVote' %>
+    <% if @user && @user.state = 'admin' %>
+    <%= link_to '屏蔽', ban_path(@question.id), :class => 'J_topicVote' %>
+    <% end %>
+    <span class="hits fr mr10"><%= @question.page_view %> 次点击</span>
+</div>
+</div>
+<div class="topic-reply container-box">
+<div class="ui-header">
+    <span>共收到<%= @question.answers.count %>条回复</span>
+</div>
+<div class="ui-content">
+    <%= render :partial => 'answers', :locals => {:answers => @question.answers} %>
+</div>
+<div class="ui-footer">
+    <div class="pagination pagination-mini"></div>
+</div>
+</div>
+
+
+<%= render :partial => 'answer', :locals => {:url => answer_path(@question), :owner_name => :question_id, :owner => @question.id} %>
+

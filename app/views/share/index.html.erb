@@ -1,0 +1,31 @@
+<div class="topics container-box">
+  <div class="ui-header">
+    <%= link_to '分享新文件', new_share_path('all'), :class => 'btn btn-small fr' %>
+    <span class="bread-nav"> 分享 </span>
+  </div>
+
+  <% @shares.each do |share| %>
+  <div class="topic-item">
+
+    <div class="main">
+      <h3 class="title">
+        <%= link_to share.title, news_path(share.id) %>
+      </h3>
+
+      <div class="ui-content">
+        <p><%= share.content %></p>
+      </div>
+
+      <div class="meta">
+        <span class="username">
+          <%= link_to share.user.username, user_path(share.user)  %>
+        </span> •
+        <span class="last-touched"><%= time_ago_in_words share.created_at %></span> •
+      </div>
+    </div>
+    <div class="count">
+      <%= link_to share.replies.count, news_path(share.id) %>
+    </div>
+  </div>
+  <% end %>
+</div>
