@@ -36,7 +36,7 @@ Social::Application.routes.draw do
   match  'news/:id/edit' => 'news#edit', :as => :edit_news
   post 'news/:id/reply' => 'news#reply', :as => :reply_news
   get  'news/:id' => 'news#show', :as => :news
-
+  
   get  'page' => "page#index", :as => :pages
   match  'page/new' => 'page#new', :as => :new_page
   match  'page/:id/edit' => 'page#edit', :as => :edit_page

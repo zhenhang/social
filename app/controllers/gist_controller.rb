@@ -10,6 +10,7 @@ class GistController < ApplicationController
     if request.post?
       @gist = Gist.create(params[:gist])
       @gist.user = current_user
+      @gist.save
       redirect_to gist_path(@gist)
     else
       @gist = Gist.new

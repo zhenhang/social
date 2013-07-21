@@ -12,6 +12,7 @@ class AskController < ApplicationController
       @question.user = current_user
       @question.state = 'normal'
       @question.save
+      redirect_to ask_path(@question)
     else
       @question = Question.new
     end
@@ -21,7 +22,7 @@ class AskController < ApplicationController
     @question = Question.find(params[:id])
     if request.post?
       @question.update_attributes(params[:question])
-      redirect_to question_path(@question)
+      redirect_to ask_path(@question)
     end
   end
 
@@ -109,7 +110,7 @@ class AskController < ApplicationController
     @question.state = :closed
     @question.save
 
-    redirect_to question_path(@question)
+    redirect_to ask_path(@question)
   end
 
   def ban

@@ -1,5 +1,5 @@
 <div class="container-box">
-<%= form_for(@user, :class => 'form-horizontal', :url => user_setting_path, :method => :post) do |f| %>
+<%= form_for(current_user, :class => 'form-horizontal', :url => user_setting_path, :method => :post) do |f| %>
     <fieldset>
         <div id="legend">
             <legend class="">用户信息设置</legend>
@@ -9,7 +9,7 @@
             <!-- Avatar -->
             <label class="control-label" for="avatar">头像</label>
             <div class="controls">
-                <%= image_tag @user.avatar, :class => 'avatar' %>
+                <%= image_tag current_user.avatar, :class => 'avatar' %>
                 <%= link_to '设置头像', user_avatar_path, :class => 'btn btn-block set-avatar-btn' %>
             </div>
         </div>
