@@ -47,11 +47,11 @@
                         <li><%= link_to '资源', shares_path %></li>
                         <li><%= link_to '成员', users_path %></li>
                         <li><%= link_to '问答', asks_path %></li>
-                        <% if current_user && current_user.state == 'admin' %>
                         <li><%= link_to '笔记', gists_path %></li>
                         <li><%= link_to '页面', pages_path %></li>
                         <li><%= link_to '好友', friends_path %></li>
                         <li><a class="hide" href="/admin">管理</a></li>
+                        <% if current_user && current_user.state == 'admin' %>
                         <% end %>
                 </ul>
             </div>
