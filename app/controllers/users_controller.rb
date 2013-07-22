@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def avatar
     if request.post?
-      current_user.update_attributes(params[:avatar])
+      current_user.update_attributes(params[:user])
     end
   end
 
