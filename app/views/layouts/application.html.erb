@@ -76,11 +76,11 @@
 
         <div id="main" class="span9">
 
-        <% if flash[:notice] %>
+        <% if flash[:omniauth] %>
         <div class=" container-box">
         <h4 class="title">公告</h4>
         <blockquote  >
-            <%= flash[:notice] %>
+            <%= flash[:omniauth] %>
         </blockquote>
         </div>
         <% end %>

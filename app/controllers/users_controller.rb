@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :authenticate_user!, :only => [:signup, :login, :forgot_pwd, :show, :favs, :topics, :replies, :index]
+  skip_before_filter :authenticate_user!, :only => [:signup, :login, :forgot_pwd, :show, :favs, :topics, :replies, :index,:signup_by_weibo]
 
   def signup
   end
@@ -54,5 +54,17 @@ class UsersController < ApplicationController
   def replies
     @user = User.find(params[:id])
     @topics = @user.replies.all
+  end
+
+  def signup_by_weibo
+    if request.post?
+      @user = User.create!(params[:user])
+      User.update(@user.id,:avatar => open(session[:avatar]))
+      #@user = User.create!(username:params[:username],imageemail:params[:email],password:params[:password],password_confirmation:params[:password_confirmation])
+      Authentication.update(session[:authentication_id],:user_id => @user.id)
+      #Authentication.create_from_hash(@user.id, omniauth)
+    else
+      @user = User.new
+    end
   end
 end

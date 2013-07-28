@@ -82,13 +82,16 @@ Social::Application.routes.draw do
   get  'u/:id/favs' => 'users#favs', :as => :user_favs
   get  'u/:id' => 'users#show', :as => :user
 
-  devise_for :users
+  match 'signup_by_weibo' => 'users#signup_by_weibo' , :as => :signup_by_weibo
+
+  devise_for :users ,controllers:{omniauth_callbacks: :authentications}
 
   match 'login' => 'users#login', :as => :login
   match 'logout' => 'users#logout', :as => :logout
   match 'signup' => 'users#signup', :as => :signup
   match 'change_pwd' => 'users#change_pwd', :as => :change_pwd
   match 'forgot_pwd' => 'users#forgot_pwd', :as => :forgot_pwd
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

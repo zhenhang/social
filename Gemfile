@@ -17,3 +17,4 @@ gem 'formtastic'
 gem "paperclip", "~> 3.0"
 gem 'devise'
 gem 'thin'
+gem 'omniauth-weibo-oauth2','~>0.2.0'

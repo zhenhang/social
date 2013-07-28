@@ -2,7 +2,10 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.remember_for = 2.weeks
-  
+  # ==>Omniauth Configuration
+
+  config.omniauth :weibo, '1257995553', '0256c811670ded17ddb2ee11c0529e0d'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
